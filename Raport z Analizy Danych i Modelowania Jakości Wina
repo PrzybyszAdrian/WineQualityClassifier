@@ -1,0 +1,50 @@
+Wprowadzenie
+Celem analizy było zbudowanie modelu klasyfikacyjnego, który będzie przewidywać jakość wina na podstawie jego cech chemicznych. Proces ten obejmował wczytanie i wstępną analizę danych, wizualizację, normalizację, kategoryzację etykiet, trenowanie i strojenie modeli oraz ocenę wyników.
+
+Przeprowadzone Operacje
+Wczytanie Danych
+
+Dane dotyczące jakości wina zostały wczytane z pliku CSV za pomocą klasy DataLoader. Dane zawierały 1599 próbek z 12 zmiennymi, w tym zmienną docelową quality.
+Wstępna Analiza Danych
+
+Informacje o danych: Sprawdzono liczbę próbek, typy danych oraz brakujące wartości. Wyniki pokazały, że nie ma brakujących wartości.
+Statystyki opisowe: Obliczono podstawowe statystyki dla każdej zmiennej (średnia, mediana, odchylenie standardowe itp.).
+Wizualizacja danych: Histogramy dla każdej zmiennej pokazały rozkład wartości. Macierz korelacji zidentyfikowała zależności między zmiennymi. Wykres pudełkowy dla zmiennej alcohol w różnych klasach jakości pokazał, że wyższa zawartość alkoholu jest skorelowana z wyższą jakością wina.
+Normalizacja Danych
+
+Dane zostały znormalizowane przy użyciu StandardScaler, co zapewniło, że wszystkie zmienne miały podobny zakres wartości. Normalizacja jest ważna, ponieważ wiele algorytmów uczenia maszynowego działa lepiej na danych, które są na tej samej skali.
+Kategoryzacja Etykiet
+
+Zmienna quality została przeklasyfikowana na dwie kategorie: niska jakość (0) i wysoka jakość (1). Ułatwiło to klasyfikację binarną.
+Trenowanie Modeli
+
+Przetestowano trzy różne modele klasyfikacyjne: Logistic Regression, Random Forest Classifier oraz Support Vector Machine (SVM). Każdy model został oceniony pod kątem dokładności na zestawie testowym.
+Logistic Regression: Osiągnął dokładność 0.74.
+Random Forest Classifier: Osiągnął dokładność 0.81 przed strojeniem i 0.80 po strojeniu.
+SVM (Support Vector Machine): Osiągnął dokładność 0.77.
+Strojenie Modeli
+
+Przeprowadzono strojenie hiperparametrów za pomocą GridSearchCV, aby znaleźć najlepsze parametry dla każdego modelu. Najlepszy model został wybrany na podstawie wyników walidacji krzyżowej.
+Uzasadnienie Przeprowadzonych Operacji
+Wstępna analiza i wizualizacja danych: Pozwala na lepsze zrozumienie struktury danych, identyfikację potencjalnych problemów, takich jak brakujące wartości, oraz zrozumienie relacji między zmiennymi.
+Normalizacja danych: Zapewnia, że wszystkie zmienne są na tej samej skali, co może znacząco poprawić wydajność modeli klasyfikacyjnych.
+Kategoryzacja etykiet: Upraszcza problem klasyfikacji do klasyfikacji binarnej.
+Trenowanie i strojenie modeli: Pozwala na wybór najlepszego modelu do zadania klasyfikacji, zapewniając, że model jest optymalny pod względem dokładności i stabilności.
+Analiza Wyników
+Dokładność Modeli
+
+Logistic Regression: Osiągnął dokładność 0.74.
+Random Forest Classifier: Osiągnął dokładność 0.81 przed strojeniem i 0.80 po strojeniu.
+SVM (Support Vector Machine): Osiągnął dokładność 0.77.
+Najlepszy Model
+
+Najlepszym modelem okazał się Random Forest Classifier, który po strojeniu osiągnął dokładność 0.80. Model ten został wybrany na podstawie najwyższej dokładności oraz stabilności wyników podczas walidacji krzyżowej.
+Krzywa ROC i AUC
+
+Krzywa ROC dla najlepszego modelu, Random Forest Classifier, pokazuje bardzo dobrą zdolność modelu do rozróżniania między klasami jakości wina, z wartością AUC równą 0.89. Wysoka wartość AUC wskazuje na solidną zdolność modelu do rozróżniania między klasami.
+Macierz Pomyłek
+
+Macierz pomyłek pokazuje, że model dobrze radzi sobie z klasyfikacją obu klas, z niewielką liczbą błędów klasyfikacyjnych:
+
+Podsumowanie
+Najlepszy model, Random Forest Classifier, osiągnął wysoką dokładność i wykazał się solidną zdolnością do rozróżniania między klasami jakości wina. Normalizacja danych oraz dokładna analiza wstępna pozwoliły na poprawę wydajności modeli klasyfikacyjnych. Wyniki pokazują, że model jest dobrze skalibrowany i może być użyteczny w praktycznych zastosowaniach klasyfikacji jakości wina.
