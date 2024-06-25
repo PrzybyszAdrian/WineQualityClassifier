@@ -1,0 +1,33 @@
+Wstępna Analiza Danych
+Wczytane dane dotyczące jakości wina składają się z 1599 próbek, z 12 zmiennymi, w tym zmiennej docelowej quality. Poniżej znajdują się podstawowe statystyki opisowe dla każdej zmiennej oraz liczba brakujących wartości, która wynosi zero dla wszystkich zmiennych.
+
+Wizualizacja Danych
+Histogramy: Histogramy dla każdej zmiennej pokazują rozkład wartości. Zauważalne jest, że niektóre zmienne, takie jak residual sugar, chlorides, i total sulfur dioxide, mają asymetryczne rozkłady.
+Macierz Korelacji: Korelacje między zmiennymi pokazują, że alcohol ma pozytywną korelację z jakością wina, podczas gdy volatile acidity ma negatywną korelację.
+Wykres Pudełkowy: Wykres pudełkowy dla alkoholu w różnych klasach jakości pokazuje, że wyższa zawartość alkoholu jest skorelowana z wyższą jakością wina.
+Normalizacja i Kategoryzacja Danych
+Dane zostały znormalizowane przy użyciu StandardScaler, co zapewnia, że wszystkie zmienne mają średnią równą zero i odchylenie standardowe równe jeden. Etykiety jakości zostały przeklasyfikowane na dwie kategorie: niska jakość (0) i wysoka jakość (1).
+
+Trenowanie i Strojenie Modeli
+Trzy modele klasyfikacyjne zostały przetestowane:
+
+Logistic Regression: Osiągnął dokładność 0.74.
+Random Forest Classifier: Osiągnął dokładność 0.81 przed strojeniem i 0.80 po strojeniu.
+SVM (Support Vector Machine): Osiągnął dokładność 0.77.
+Wybrany Model
+Najlepszym modelem okazał się Random Forest Classifier, który po strojeniu osiągnął dokładność 0.80. Strojenie obejmowało optymalizację parametrów takich jak n_estimators i max_depth.
+
+Dokładność Modelu
+Najlepszy model osiągnął dokładność 0.80. Poniżej znajdują się metryki klasyfikacyjne:
+
+Precyzja: 0.80
+Czułość: 0.80
+Miara F1: 0.80
+Krzywa ROC i AUC
+Krzywa ROC dla najlepszego modelu, Random Forest Classifier, pokazuje bardzo dobrą zdolność modelu do rozróżniania między klasami jakości wina, z wartością AUC równą 0.89.
+
+Macierz Pomyłek
+Macierz pomyłek pokazuje, że model dobrze radzi sobie z klasyfikacją obu klas, z niewielką liczbą błędów klasyfikacyjnych:
+
+Podsumowanie
+Na podstawie analizy wyników można stwierdzić, że Random Forest Classifier jest najlepszym modelem do klasyfikacji jakości wina w tym zestawie danych, osiągając dokładność 0.80. Wysoka wartość AUC wskazuje na solidną zdolność modelu do rozróżniania między klasami. Wizualizacje danych pomogły zidentyfikować kluczowe zmienne wpływające na jakość wina, takie jak zawartość alkoholu.
